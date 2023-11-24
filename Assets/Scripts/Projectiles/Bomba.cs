@@ -8,14 +8,17 @@ public class Bomba : MonoBehaviour
     [SerializeField] private float fuerzaExplosion;
     [SerializeField] private GameObject efectoExplosion;
     [SerializeField] private float tiempoParaDestruir = 1f; // Agrega este campo
+    private AudioSource Explosion;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             explosion();
             animacion();
             StartCoroutine(DestruirBomba()); // Iniciar la rutina de destrucción
+            Explosion.Play();
         }
     }
 
@@ -24,6 +27,7 @@ public class Bomba : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        Explosion = GetComponent<AudioSource>();
     }
 
     private void animacion()

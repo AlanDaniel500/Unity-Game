@@ -7,8 +7,10 @@ public class Enemy_Slime : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    [SerializeField] public float enemyHealth;
+    [SerializeField] public float MaxHealth;
+    [SerializeField] public float Health;
     [SerializeField] private float enemyDamage;
+    [SerializeField] public VidaEnemigo barraDeVida;
 
     private void Awake()
     {
@@ -37,14 +39,15 @@ public class Enemy_Slime : MonoBehaviour
 
     private void takeDamage(float damage)
     {
-        enemyHealth -= damage;
+        Health -= damage;
         isDead();
         animator.SetBool("Hurt", true);
+        barraDeVida.ActualizarBarraDeVida(MaxHealth, Health);
     }
 
     private void isDead()
     {
-        if (enemyHealth <= 0)
+        if (Health <= 0)
         {
             animator.SetBool("Death", true);
             animator.SetBool("Hurt", false);

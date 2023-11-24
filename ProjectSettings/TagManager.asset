@@ -9,6 +9,7 @@ TagManager:
   - HealingZone
   - Ground
   - Item
+  - Salida
   layers:
   - Default
   - TransparentFX

@@ -37,6 +37,7 @@ public class TakeDamage : MonoBehaviour
         isDead();
         StartCoroutine(lossControl());
         playerBounce(position);
+
     }
     private void isDead()
     {

@@ -100,13 +100,13 @@ public class PlayerScript : MonoBehaviour
     private void FixedUpdate()
     {
         inFloor = Physics2D.OverlapBox(floorController.position, boxDimensions, 0f, isFloor);
-        jump = false;
 
         if (canMove)
         {
             Move(horizontalMovement * Time.fixedDeltaTime, jump);
         }
 
+        jump = false;
         healthBar.UpdateHealthBar(healthPoints, maxHealthPoints);
     }
 
